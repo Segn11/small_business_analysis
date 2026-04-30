@@ -1,55 +1,105 @@
-Small Business Owners Analysis
+# Small Business Owners Analysis (SCFP 2019)
 
-Unsupervised Learning Project | K-Means Clustering & PCA Visualization
+**Unsupervised Learning Project — K-Means Clustering & PCA Visualization**
 
-This project analyzes small business ownership in the United States using the SCFP2019 dataset. By applying unsupervised learning techniques, we explore financial patterns among business owners, identify distinct clusters, and visualize high-variance financial features.
+This project explores **financial patterns among small business owners in the United States** using the **SCFP 2019** dataset. By applying unsupervised learning techniques, we identify distinct groups of business owners, highlight the most informative (high-variance) financial features, and visualize the resulting clusters with PCA.
 
-🔹 Project Overview
+---
 
-The goal of this project is to explore and understand patterns among small business owners in the US. Specifically, it:
+## Project Goals
 
-Examines the proportion of business owners across income categories.
+This analysis is designed to **discover structure in the data** (no target variable), focusing on:
 
-Identifies the top high-variance financial features.
+- **Profiling ownership patterns** across income categories  
+- **Selecting key financial features** using robust variance-based methods  
+- **Clustering** similar business owners with **K-Means**  
+- **Reducing dimensionality** with **PCA** for interpretable 2D visualization  
+- Generating **interactive and static visuals** to communicate insights clearly
 
-Performs K-Means clustering to group similar business owners.
+> Note: This is an **unsupervised learning** project—its purpose is to uncover patterns and segments, not to predict outcomes.
 
-Uses PCA (Principal Component Analysis) to reduce dimensionality for visualization.
+---
 
-Produces interactive and static visualizations to gain actionable insights.
+## What’s Inside
 
-Note: This is an unsupervised learning project, meaning there is no target variable. The focus is on discovering patterns and clusters in the data rather than predicting outcomes.
+### 1) Income Distribution Analysis
+Compare income ranges between:
+- **Business owners**
+- **Non-owners**
 
-🔹 Key Techniques & Libraries
+This helps frame how ownership relates to financial standing.
 
-Python & Pandas – Data manipulation and preprocessing
+### 2) High-Variance Feature Discovery
+To focus clustering on informative signals, the project identifies **top financial features by variance**, using **trimmed variance** for robustness against outliers.
 
-Plotly & Seaborn – Interactive and static visualizations
+### 3) Clustering (K-Means)
+Business owners are segmented into meaningful groups:
+- Uses the **Elbow Method** to estimate a reasonable `k`
+- Uses **Silhouette Score** to evaluate clustering quality
+- Final segmentation identifies **3 interpretable clusters**
 
-Scipy – Trimmed variance for robust feature selection
+### 4) PCA Visualization
+PCA is used to project clustered points into **2D space**, making cluster separation and structure easier to interpret and present.
 
-Scikit-learn –
+---
 
-StandardScaler for feature normalization
+## Tools & Libraries
 
-K-Means clustering for grouping similar business owners
+- **Python** — analysis and modeling  
+- **Pandas** — data cleaning and preprocessing  
+- **Plotly** — interactive visualizations  
+- **Seaborn / Matplotlib** — static plots  
+- **SciPy** — trimmed variance for robust feature selection  
+- **Scikit-learn**  
+  - `StandardScaler` — feature normalization  
+  - `KMeans` — clustering  
+  - `PCA` — dimensionality reduction  
+  - `silhouette_score` — cluster quality evaluation  
+  - `Pipeline` — clean modeling workflow (scaling → clustering)
 
-PCA for dimensionality reduction and visualization
+---
 
-Silhouette score for evaluating clustering quality
+## Typical Workflow
 
-Pipeline – Combines scaling and clustering steps efficiently
+1. Load and clean SCFP 2019 data  
+2. Explore ownership & income distributions  
+3. Select high-variance financial features  
+4. Scale features (`StandardScaler`)  
+5. Cluster using `KMeans` (choose `k` using elbow + silhouette)  
+6. Visualize clusters using PCA (2D)  
+7. Interpret clusters and summarize insights
 
-🔹 Highlights
+---
 
-Income Distribution: Compares income ranges between business owners and non-owners.
+## Results (High-Level)
 
-Feature Selection: Identifies features with highest variance for clustering.
+- Clear differences emerge when comparing **income distribution** between owners and non-owners  
+- Variance-based filtering isolates the most informative financial dimensions  
+- K-Means forms **3 distinct segments** of business owners  
+- PCA visualization provides an intuitive view of **cluster separation and overlap**
 
-Clustering:
+---
 
-Uses elbow method and silhouette scores to find optimal clusters.
+## Future Improvements (Optional Roadmap)
 
-Segments business owners into 3 meaningful clusters.
+- Try alternative clustering methods (GMM, DBSCAN, Hierarchical)
+- Add cluster profiling tables (median values per cluster for interpretability)
+- Automate reporting (export plots + summary into a single report notebook)
+- Add reproducible environment setup (`requirements.txt` / `environment.yml`)
 
-PCA Visualization: Displays clusters in 2D for easy interpretation.
+---
+
+## Contributing
+
+Suggestions and improvements are welcome:
+- Open an issue for bugs or enhancements
+- Submit a pull request with clear descriptions and results
+
+---
+
+## License
+
+Add a license if you plan to share or reuse this project publicly (e.g., MIT, Apache-2.0).
+
+---
+**Keywords:** Unsupervised Learning, K-Means, PCA, Segmentation, SCFP 2019, Small Business, Financial Analysis
